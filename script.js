@@ -82,5 +82,5 @@ if (userAgeValue < 18) {
     Adesso puoi acquistare il biglietto al prezzo di: ${discount.toFixed(2)}\u20AC!
     `;
 }
-console.log(result)
+document.querySelector(".finalprice").innerHTML = result;
 })
