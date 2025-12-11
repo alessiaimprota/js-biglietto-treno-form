@@ -3,3 +3,31 @@
     margin: 0;
     padding: 0;
 }
+
+body{
+    font-family: "Roboto", sans-serif;
+    color: white;
+    background-color: hsl(338.18deg 80.49% 40.2%);;
+}
+
+h1{
+text-align: center;
+margin: 30px 0;
+font-weight: 900;
+}
+
+.form-container{ 
+    margin: 0 auto;
+    width: 80%;
+    background-color: white;
+    color:  hsl(338.18deg 80.49% 40.2%);
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
