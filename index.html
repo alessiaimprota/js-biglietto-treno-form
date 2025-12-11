@@ -16,7 +16,7 @@
     <div class="wrapper">
       <h1>CALCOLA IL PREZZO DEL TUO BIGLIETTO</h1>
       <form>
-        <div class="form-container">
+        <div class="form-input-container">
           <div class="input-container">
             <span>Nome e cognome</span>
             <input type="text" class="username" />
@@ -32,9 +32,44 @@
             <input type="text" class="input-age" />
           </div>
         </div>
-        <button>Acquista</button>
+
+        <div class="btn-container">
+          <button>Acquista</button>
+          <button>Annulla</button>
+        </div>
         <div class="finalprice"></div>
       </form>
+    </div>
+
+    <div class="hidden-ticket">
+      <h2>IL TUO BIGLIETTO</h2>
+      <div class="ticket-container">
+        <h3>DETTAGLIO PASSEGGERO</h3>
+        <div class="ticket">
+          <div class="ticket-name">
+            <h4>NOME PASSEGGERO</h4>
+            <span class="username-ticket"></span>
+          </div>
+          <div class="ticket-details">
+            <div class="ticket-detail">
+              <span class="discount">Offerta</span>
+              <span class="ticketdiscount"></span>
+            </div>
+            <div class="ticket-detail">
+              <span class="infoticket">Carrozza</span>
+              <span class="user-info-ticket">5</span>
+            </div>
+            <div class="ticket-detail">
+              <span class="discount">Codice Cp</span>
+              <span class="typeofticket">262626</span>
+            </div>
+            <div class="ticket-detail">
+              <span class="price">Costo biglietto</span>
+              <span class="user-price"></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <script src="script.js"></script>
   </body>

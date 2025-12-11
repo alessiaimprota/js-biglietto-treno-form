@@ -56,31 +56,37 @@ if (userAge < 18) {
 console.log(result);
 document.getElementById("discount-result").innerHTML = result;*/
 
-const formElement= document.querySelector("form");
-const userKm= document.querySelector(".input-km");
-const userAge=document.querySelector(".input-age");
-const priceKm= 0.21;
+const formElement = document.querySelector("form");
+const userKm = document.querySelector(".input-km");
+const userNameForm = document.querySelector(".username");
+const userAge = document.querySelector(".input-age");
+const priceKm = 0.21;
 
-formElement.addEventListener("submit", (e)=> {
-    e.preventDefault()
-    const userKmValue= parseFloat(userKm.value)
-    const userAgeValue= parseInt(userAge.value)
-    const priceTicket = userKmValue * priceKm;
-    result=`Nessuno sconto trovato. Acquista il tuo biglietto al prezzo di ${priceTicket} \u20AC`
-if (userAgeValue < 18) {
-    let discount =
-        priceTicket - ((priceTicket * 20) / 100);
-    result = `
-    Hai il 20% di sconto! Il prezzo del biglietto intero è di ${priceTicket}\u20AC.
-    Adesso puoi acquistare il biglietto al prezzo di: ${discount.toFixed(2)}\u20AC!
-    `;
-} else if(userAgeValue >= 65) {
-    let discount =
-        priceTicket - ((priceTicket * 40) / 100);
-    result = `
-    Hai il 40% di sconto! Il prezzo del biglietto intero è di ${priceTicket}\u20AC.
-    Adesso puoi acquistare il biglietto al prezzo di: ${discount.toFixed(2)}\u20AC!
-    `;
-}
-document.querySelector(".finalprice").innerHTML = result;
-})
+document.querySelector(".hidden-ticket").style.display = "none";
+
+formElement.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const userKmValue = parseFloat(userKm.value);
+  const userAgeValue = parseInt(userAge.value);
+  const priceTicket = userKmValue * priceKm;
+
+  document.querySelector(".hidden-ticket").style.display = "block";
+  document.querySelector(".username-ticket").innerText = userNameForm.value;
+  document.querySelector(".user-price").innerText = `${priceTicket.toFixed(2)}\u20AC`;
+  document.querySelector(".ticketdiscount").innerText = "Biglietto standard";
+
+  if (userAgeValue < 18) {
+    let discount = priceTicket - (priceTicket * 20) / 100;
+    document.querySelector(".user-price").innerText = `${discount.toFixed(
+      2
+    )}\u20AC`;
+    document.querySelector(".ticketdiscount").innerText = "Biglietto minorenni";
+  } else if (userAgeValue >= 65) {
+    let discount = priceTicket - (priceTicket * 40) / 100;
+    document.querySelector(".user-price").innerText = `${discount.toFixed(
+      2
+    )}\u20AC`;
+    document.querySelector(".ticketdiscount").innerText = "Biglietto senior";
+  }
+});
